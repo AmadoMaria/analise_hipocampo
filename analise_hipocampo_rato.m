@@ -27,8 +27,11 @@ axis xy
 
 %%
 % 2) Plotando o PSD dos dois estados na mesma figura
+estado1_filtered = eegfilt(Dados.Estado1, sr, 0, 20);
+estado2_filtered = eegfilt(Dados.Estado2, sr, 0, 20);
 hold on
-pwelch(Dados.Estado1,2*sr,sr/2,[],sr);
-pwelch(Dados.Estado2,2*sr,sr/2,[],sr);
-holf off
+pwelch(estado1_filtered,2*sr,sr/2,[],sr);
+pwelch(estado2_filtered,2*sr,sr/2,[],sr);
+hold off
+legend('estado1','estado2')
 
