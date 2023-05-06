@@ -24,3 +24,11 @@ ylim([0 50])
 ylabel('Frequencia (Hz)')
 xlabel('Time (s)')
 axis xy
+
+%%
+% 2) Plotando o PSD dos dois estados na mesma figura
+hold on
+pwelch(Dados.Estado1,2*sr,sr/2,[],sr);
+pwelch(Dados.Estado2,2*sr,sr/2,[],sr);
+holf off
+
