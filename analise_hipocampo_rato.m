@@ -14,3 +14,13 @@ plot(tt, amostra_completo)
 plot(tt, amostra_estado1)
 plot(tt, amostra_estado2)
 hold off
+
+%%
+% 1) Espectograma do dado "Completo"
+
+[s,f,t]=spectrogram(Dados.Completo,2*sr,sr/2,[],sr);
+imagesc(t,f,abs(s))
+ylim([0 50])
+ylabel('Frequencia (Hz)')
+xlabel('Time (s)')
+axis xy
