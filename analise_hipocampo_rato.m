@@ -49,5 +49,25 @@ legend('estado1','estado2')
 % comparação com o SWS
 %%
 % 3) 
+estado1_filtered_theta = eegfilt(Dados.Estado1, sr, 4, 12);
+tt_est1 = (1:length(Dados.Estado1))*dt;
+hilb_theta = hilbert(estado1_filtered_theta);
 
+figure(4)
+hold on
+plot(tt_est1, Dados.Estado1)
+plot(tt_est1, estado1_filtered_theta)
+hold off
+
+figure(5)
+plot(angle(hilb_theta))
+
+estado1_filtered_hfo = eegfilt(Dados.Estado1, sr, 100, 160);
+hilb_hfo = hilbert(estado1_filtered_hfo);
+
+figure(6)
+hold on
+plot(tt_est1, estado1_filtered_hfo)
+plot(abs(hilb_hfo))
+hold off
 
